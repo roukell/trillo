@@ -26,11 +26,19 @@
   background-color: var(--color-grey-dark-1);
 
   flex: 0 0 18%; //0 flex-grow 0 flex-shrink 18% flex-basis(to define width)
+
+  display: flex;
+  //change direction from top to bottom and use space-between on items
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
+
+  //test
   background-color: orangered;
+  height: 80rem;
 
   flex: 1;
 }
