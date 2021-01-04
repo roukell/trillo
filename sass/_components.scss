@@ -18,10 +18,10 @@
     color: inherit;
     background-color: var(--color-grey-light-2);
     border: none;
-    padding: .7rem 2rem;
+    padding: 0.7rem 2rem;
     border-radius: 100px;
     width: 90%;
-    transition: all .2s;
+    transition: all 0.2s;
     margin-right: -3.25rem; //this way search button will move on top of input
 
     &:focus {
@@ -36,7 +36,7 @@
     }
   }
 
-  // using adjacent selector to select siblings 
+  // using adjacent selector to select siblings
   &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
   }
@@ -80,12 +80,10 @@
   //select all children again, but on :hover
   & > *:hover {
     background-color: var(--color-grey-light-2);
-
   }
 
   &__icon-box {
     position: relative;
-
   }
 
   &__icon {
@@ -95,7 +93,7 @@
   }
 
   &__notification {
-    font-size: .8rem;
+    font-size: 0.8rem;
     height: 1.75rem;
     width: 1.75rem;
     border-radius: 50%;
@@ -111,7 +109,6 @@
   }
 
   &__user {
-
   }
 
   &__user-photo {
@@ -121,23 +118,65 @@
   }
 
   &__user-name {
-
   }
 }
 
 // side navigation
 .side-nav {
-  &__item {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
 
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  &__link {
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    // transform-origin: center;
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color .1s; //last .2s is delay
+  }
 
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10; //z-index only works when position is specified (position: relative)
+
+    display: flex;
+    align-items: center;
   }
 
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; //currentColor is the color of the current element or parent element.
   }
 }
 
