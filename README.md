@@ -1,6 +1,7 @@
 # Trillo
 ## Description
   Trillo is one of the study projects in Jonas Schmedtmann's Advanced CSS and Sass course. 
+  The main focus of the project is to master flexbox.
   It is gradually built throughout the class. 
 
   ## Deployed application
