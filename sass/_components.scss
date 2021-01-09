@@ -145,7 +145,8 @@
     background-color: var(--color-primary);
     transform: scaleY(0);
     // transform-origin: center;
-    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color .1s; //last .2s is delay
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s; //last .2s is delay
   }
 
   &__item:hover::before,
@@ -217,7 +218,7 @@
     display: flex; //setting the parent element to flex removes the small space below the stars.
   }
 
-  &__icon-star, 
+  &__icon-star,
   &__icon-location {
     width: 1.75rem;
     height: 1.75rem;
@@ -231,7 +232,7 @@
   }
 
   &__icon-location {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   &__rating {
@@ -254,10 +255,9 @@
   }
 
   &__rating-count {
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
   }
-
 }
 
 // button inline
@@ -270,7 +270,7 @@
   display: inline-block;
   background-color: transparent;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   & span {
     margin-left: 3px;
@@ -281,7 +281,7 @@
 
     span {
       margin-left: 8px;
-      transition: margin-left .2s;
+      transition: margin-left 0.2s;
     }
   }
 
@@ -299,7 +299,7 @@
 
   50% {
     transform: scale(1.05);
-    box-shadow: 0 1rem 4rem rgba(0,0,0,.25);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
   }
 
   100% {
@@ -326,15 +326,15 @@
 
   &__item {
     flex: 0 0 50%;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
   }
 
   &__item::before {
-    content: ""; 
+    content: "";
     display: inline-block;
     height: 1rem;
     width: 1rem;
-    margin-right: .7rem;
+    margin-right: 0.7rem;
 
     // older browser approach
     // background-image: url(../img/chevron-thin-right.svg); //but cannot change its color
@@ -362,7 +362,6 @@
   }
 
   &__friends {
-
   }
 
   &__photo {
@@ -371,7 +370,7 @@
     width: 4rem;
     border-radius: 50%;
     border: 3px solid #fff;
-    
+
     &:not(:last-child) {
       margin-right: -1.15rem;
     }
@@ -413,7 +412,7 @@
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 600;
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
   }
 
   &__user-date {
@@ -437,5 +436,74 @@
     color: var(--color-grey-light-2);
     font-family: sans-serif;
     z-index: 1;
+  }
+}
+
+.cta {
+  padding: 3rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  // select all children and put all the repeated code in here
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+    to left,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
