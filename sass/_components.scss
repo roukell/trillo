@@ -394,15 +394,18 @@
     margin-right: 0.7rem;
 
     // older browser approach
-    // background-image: url(../img/chevron-thin-right.svg); //but cannot change its color
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg); //but cannot change its color
+    background-size: cover;
 
     // newer borswer approach - mask - it gives color to svg background image
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg); //only works with -webkit- prefix
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg); //only works with -webkit- prefix
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) { //always have to put a value after, therefore: url()
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg); //only works with -webkit- prefix
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg); //only works with -webkit- prefix
+      mask-size: cover;
+      background-image: none; //to fix icon color
+    }
   }
 }
 
