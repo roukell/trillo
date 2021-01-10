@@ -25,6 +25,11 @@
   To run development:  
 
       npm run start
+
+
+  To run build:  
+
+      npm run build:css
       
   ## Contributing
   Designed by Jonas Schmedtmann
